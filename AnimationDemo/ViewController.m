@@ -22,8 +22,12 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     data = @[
+  @{@"className":@"ELUIViewController",@"title":@"UIView普通动画"},
+  @{@"className":@"ELUIViewBlockController",@"title":@"UIView Block 动画"},
   @{@"className":@"ELBaseAnimationController",@"title":@"CABasicAnimation基础动画"},
-  @{@"className":@"ELKeyframeController",@"title":@"CAKeyframeAnimation基础动画"}
+  @{@"className":@"ELKeyframeController",@"title":@"CAKeyframeAnimation基础动画"},
+  @{@"className":@"ELTransform3dController",@"title":@"3D翻转动画"}
+  
   ];
     
     tblist = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];

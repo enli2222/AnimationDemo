@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ELBaseAnimationController : UIViewController
+@interface ELBaseAnimationController : UIViewController<CAAnimationDelegate>
 
 @end
