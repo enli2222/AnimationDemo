@@ -17,6 +17,7 @@
 		8DED19D7213FC9E9009DFD60 /* ELTransform3dController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DED19D6213FC9E9009DFD60 /* ELTransform3dController.m */; };
 		8DED19DA2140C3E5009DFD60 /* ELUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DED19D92140C3E5009DFD60 /* ELUIViewController.m */; };
 		8DED19DD2140C3FA009DFD60 /* ELUIViewBlockController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DED19DC2140C3FA009DFD60 /* ELUIViewBlockController.m */; };
+		8DED19E7214102A0009DFD60 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DED19E6214102A0009DFD60 /* images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		8DED19D92140C3E5009DFD60 /* ELUIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELUIViewController.m; sourceTree = "<group>"; };
 		8DED19DB2140C3FA009DFD60 /* ELUIViewBlockController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELUIViewBlockController.h; sourceTree = "<group>"; };
 		8DED19DC2140C3FA009DFD60 /* ELUIViewBlockController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELUIViewBlockController.m; sourceTree = "<group>"; };
+		8DED19E6214102A0009DFD60 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		8DED19B7213E4E69009DFD60 /* AnimationDemo */ = {
 			isa = PBXGroup;
 			children = (
+				8DED19E6214102A0009DFD60 /* images.xcassets */,
 				8DED19B8213E4E69009DFD60 /* AppDelegate.h */,
 				8DED19B9213E4E69009DFD60 /* AppDelegate.m */,
 				8DED19BB213E4E69009DFD60 /* ViewController.h */,
@@ -158,6 +161,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DED19E7214102A0009DFD60 /* images.xcassets in Resources */,
 				8DED19C5213E4E6B009DFD60 /* LaunchScreen.storyboard in Resources */,
 				8DED19C2213E4E6B009DFD60 /* Assets.xcassets in Resources */,
 			);

@@ -24,19 +24,55 @@
     
     /**------------------------移动动画-------------------------------------*/
     [self createBasicAnimation:@"position" from:[NSValue valueWithCGPoint:CGPointMake(40, 240)] to:[NSValue valueWithCGPoint:CGPointMake(300, 240)]  target:[self createView:CGRectMake(280, 100, 70, 70)]];
+    
+    /**------------------------背景颜色变化动画-------------------------------------*/
+    [self createBasicAnimation:@"backgroundColor" from:(id)[UIColor redColor].CGColor to:(id)[UIColor greenColor].CGColor  target:[self createView:CGRectMake(20, 310, 70, 70)]];
+
+    /**------------------------内容变化动画-------------------------------------*/
+    
+    UIImageView *img = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"from"]];
+    img.frame = CGRectMake(150, 310, 70, 70);
+    [self.view addSubview:img];
+    [self createBasicAnimation:@"contents" from:nil to:(id)[UIImage imageNamed:@"to"].CGImage target:img];
+    
+    /**------------------------圆角变化动画-------------------------------------*/
+    UIView *radiuView = [self createView:CGRectMake(280, 310, 70, 60)];
+    radiuView.layer.masksToBounds = YES;
+    [self createBasicAnimation:@"cornerRadius" from:nil to:[NSNumber numberWithInteger:35] target:radiuView];
+    
+    /**------------------------比例缩放动画-------------------------------------*/
+    [self createBasicAnimation:@"transform.scale" from:[NSNumber numberWithFloat:0.3] to:[NSNumber numberWithFloat:1.3]   target:[self createView:CGRectMake(20, 410, 70, 70)]];
+
+    [self createBasicAnimation:@"transform.scale.x" from:[NSNumber numberWithFloat:0.3] to:[NSNumber numberWithFloat:1.3]   target:[self createView:CGRectMake(150, 410, 70, 70)]];
+    
+    [self createBasicAnimation:@"transform.scale.y" from:[NSNumber numberWithFloat:0.3] to:[NSNumber numberWithFloat:1.3]   target:[self createView:CGRectMake(280, 410, 70, 70)]];
+    
+    /**------------------------指定大小缩放-------------------------------------*/
+     [self createBasicAnimation:@"bounds" from:nil to:[NSValue valueWithCGRect:CGRectMake(800, 500, 90, 30)]   target:[self createView:CGRectMake(40, 520, 20, 80)]];
+    
+    /**------------------------透明动画-------------------------------------*/
+    [self createBasicAnimation:@"opacity" from:[NSNumber numberWithFloat:0.3] to:[NSNumber numberWithFloat:1.3]   target:[self createView:CGRectMake(150, 520, 70, 70)]];
+    
 }
 
--(void)createBasicAnimation:(NSString *)keyPath from:(id)from to:(id)to target:(UIView *)target{
+-(CABasicAnimation *)createBasicAnimation:(NSString *)keyPath from:(id)from to:(id)to target:(UIView *)target{
     CABasicAnimation *ani = [[CABasicAnimation alloc]init];
     ani.keyPath = keyPath;
     ani.beginTime = 0.0;
-    ani.fromValue = from;
-    ani.toValue = to;
+    if (from) {
+        ani.fromValue = from;
+    }
+    if (to) {
+        ani.toValue = to;
+    }
+    
     ani.duration = 1.5;
     ani.repeatCount = NSIntegerMax;
     ani.delegate = self;
     ani.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    ani.autoreverses = YES;
     [target.layer addAnimation:ani forKey:keyPath];
+    return ani;
 }
 
 -(UIView *)createView:(CGRect)frame{
