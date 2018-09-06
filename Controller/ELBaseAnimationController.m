@@ -4,7 +4,7 @@
 //
 //  Created by enli on 2018/9/4.
 //  Copyright © 2018年 enli. All rights reserved.
-//
+//  参考 http://www.cocoachina.com/ios/20170124/18617.html
 
 #import "ELBaseAnimationController.h"
 

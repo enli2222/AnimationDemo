@@ -16,8 +16,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blueColor];
-    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    UIView *tmpView = [[UIView alloc]initWithFrame:CGRectMake(50, 100, 250, 500)];
+    UIBezierPath * bezierPath = [UIBezierPath bezierPathWithOvalInRect:tmpView.frame];
+    UIView *aniView = [[UIView alloc]initWithFrame:CGRectMake(50, 50, 70, 80)];
+    aniView.backgroundColor = [UIColor redColor];
+    [self.view addSubview:aniView];
+    
+    CAKeyframeAnimation *ani = [[CAKeyframeAnimation alloc]init];
+    ani.keyPath = @"position";
+    ani.duration = 5;
+    ani.path = bezierPath.CGPath;
+    ani.calculationMode = kCAAnimationPaced;
+    ani.fillMode = kCAFillModeForwards;
+    ani.repeatCount = NSIntegerMax;
+    ani.rotationMode = kCAAnimationRotateAutoReverse;
+    [aniView.layer addAnimation:ani forKey:@"orbitAnim"];
+    
+    /**------------------------画轨迹-------------------------------------*/
+    CAShapeLayer *shapeLayer = [[CAShapeLayer alloc]init];
+    shapeLayer.strokeColor = [UIColor blueColor].CGColor;
+    shapeLayer.fillColor = [UIColor clearColor].CGColor;
+    shapeLayer.lineWidth = 0.5;
+    shapeLayer.lineJoin = kCALineJoinRound;
+    shapeLayer.lineCap = kCALineCapRound;
+    shapeLayer.path = bezierPath.CGPath;
+    [self.view.layer addSublayer:shapeLayer];
+
 }
 
 - (void)didReceiveMemoryWarning {
